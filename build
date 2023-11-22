@@ -2,6 +2,8 @@
 
 set -e
 
+dart pub get
+
 (set -x; $DART_SDK/bin/dart2wasm -O --omit-type-checks --js-compatibility benchmark/benchmark.dart benchmark.wasm)
 
 (set -x; $DART_SDK/../out/ReleaseX64/dart-sdk/bin/dart compile js -O4 benchmark/benchmark.dart -o benchmark.js)
