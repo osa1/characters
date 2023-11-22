@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+(set -x; $DART_SDK/bin/dart2wasm -O --omit-type-checks --js-compatibility benchmark/benchmark.dart benchmark.wasm)
+
+(set -x; $DART_SDK/../out/ReleaseX64/dart-sdk/bin/dart compile js -O4 benchmark/benchmark.dart -o benchmark.js)
+
+for file in *.wasm; do
+    (set -x; /usr/local/google/home/omersa/v8/v8/out/x64.release/wami $file --full-wat $@ > "${file%.wasm}.wat")
+done

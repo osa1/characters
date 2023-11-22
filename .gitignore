@@ -2,3 +2,15 @@
 .packages
 pubspec.lock
 doc/api/
+*.js
+*.js.deps
+*.js.map
+*.mjs
+*.wasm
+*.wat
+benchmark.js.perf
+benchmark.js.script.perf
+benchmark.wasm.perf
+benchmark.wasm.script.perf
+v8.log
+*.old

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+(set -x; $DART_SDK/../third_party/d8/linux/x64/d8 --turboshaft-wasm --experimental-wasm-imported-strings $DART_SDK/../pkg/dart2wasm/bin/run_wasm.js -- `readlink -f benchmark.mjs` benchmark.wasm)
+
+(set -x; $DART_SDK/../third_party/d8/linux/x64/d8 $DART_SDK/lib/_internal/js_runtime/lib/preambles/d8.js benchmark.js)
